@@ -1,0 +1,101 @@
+# Copyright (c) 2008-2017 LG Electronics, Inc.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+##
+
+# LAYER_CONF_VERSION is increased each time build/conf/bblayers.conf
+# changes incompatibly
+LCONF_VERSION = "7"
+
+BBPATH = "${TOPDIR}"
+
+# Pull in two optional configuration files to allow the user to override
+# component source directories, shared state locations, etc.
+#
+# webos-global.conf (in the user's home directory) applies overrides to
+# all clones of openwebos/build-webos in the user's account.
+#
+# webos-local.conf resides at the top of the build-webos repo and applies
+# overrides on a per-repo basis.
+#
+# Including both here saves the user remmebering to chain to the local
+# file from the global one, avoids them forgetting to do so, and makes
+# the existence of a global override file optional.
+#
+# The location of the shared-state cache can be moved by overriding
+# DL_DIR and SSTATE_DIR.
+#
+# The meta-webos layer can be moved out-of-tree by overriding WEBOS_LAYER.
+# Note that running mcf will still clone and checkout a meta-webos directory
+# in the root of the repo, but "make" will ignore it and use the overridden
+# location for recipes etc. The first time you move a meta-webos layer out of
+# tree may invalidate your shared state information, as a result of recloning
+# the meta-webos layer.
+
+# NOTE: directory names META_*LAYER are used in scripts/bitbake.bash_completion
+
+META_SECURITY_LAYER ?= "##OEROOT##/meta-security"
+META_WEBOS_SMACK_LAYER ?= "##OEROOT##/meta-webosose/meta-webos-smack"
+META_WEBOS_VIRTUALIZATION_LAYER ?= "##OEROOT##/meta-webosose/meta-webos-virtualization"
+META_WEBOS_UPDATER_LAYER ?= "##OEROOT##/meta-webosose/meta-webos-updater"
+META_WEBOS_LAYER ?= "##OEROOT##/meta-webosose/meta-webos"
+META_WEBOS_BACKPORTS_3.1_LAYER ?= "##OEROOT##/meta-webosose/meta-webos-backports/meta-webos-backports-3.1"
+META_WEBOS_BACKPORTS_3.0_LAYER ?= "##OEROOT##/meta-webosose/meta-webos-backports/meta-webos-backports-3.0"
+META_WEBOS_BACKPORTS_2.7_LAYER ?= "##OEROOT##/meta-webosose/meta-webos-backports/meta-webos-backports-2.7"
+META_QT5_LAYER ?= "##OEROOT##/meta-qt5"
+META_VIRTUALIZATION_LAYER ?= "##OEROOT##/meta-virtualization"
+META_UPDATER_LAYER ?= "##OEROOT##/meta-updater"
+META_FILESYSTEMS_LAYER ?= "##OEROOT##/meta-openembedded/meta-filesystems"
+META_PYTHON_LAYER ?= "##OEROOT##/meta-openembedded/meta-python"
+META_NETWORKING_LAYER ?= "##OEROOT##/meta-openembedded/meta-networking"
+META_MULTIMEDIA_LAYER ?= "##OEROOT##/meta-openembedded/meta-multimedia"
+META_OE_LAYER ?= "##OEROOT##/meta-openembedded/meta-oe"
+META_LAYER ?= "##OEROOT##/poky/meta"
+
+BBFILES ?= ""
+BBLAYERS ?= " \
+    ${META_SECURITY_LAYER} \
+    ${META_WEBOS_SMACK_LAYER} \
+    ${META_WEBOS_VIRTUALIZATION_LAYER} \
+    ${META_WEBOS_UPDATER_LAYER} \
+    ${META_WEBOS_LAYER} \
+    ${META_WEBOS_BACKPORTS_3.1_LAYER} \
+    ${META_WEBOS_BACKPORTS_3.0_LAYER} \
+    ${META_WEBOS_BACKPORTS_2.7_LAYER} \
+    ${META_QT5_LAYER} \
+    ${META_VIRTUALIZATION_LAYER} \
+    ${META_UPDATER_LAYER} \
+    ${META_FILESYSTEMS_LAYER} \
+    ${META_PYTHON_LAYER} \
+    ${META_NETWORKING_LAYER} \
+    ${META_MULTIMEDIA_LAYER} \
+    ${META_OE_LAYER} \
+    ${META_LAYER} \
+"
+BBFILE_PRIORITY_security_forcevariable = "77"
+BBFILE_PRIORITY_meta-webos-smack_forcevariable = "75"
+BBFILE_PRIORITY_meta-webos-virtualization_forcevariable = "53"
+BBFILE_PRIORITY_meta-webos-updater_forcevariable = "52"
+BBFILE_PRIORITY_meta-webos_forcevariable = "40"
+BBFILE_PRIORITY_meta-webos-backports-3.1_forcevariable = "32"
+BBFILE_PRIORITY_meta-webos-backports-3.0_forcevariable = "31"
+BBFILE_PRIORITY_meta-webos-backports-2.7_forcevariable = "30"
+BBFILE_PRIORITY_qt5-layer_forcevariable = "20"
+BBFILE_PRIORITY_virtualization-layer_forcevariable = "16"
+BBFILE_PRIORITY_sota_forcevariable = "15"
+BBFILE_PRIORITY_filesystems-layer_forcevariable = "14"
+BBFILE_PRIORITY_meta-python_forcevariable = "13"
+BBFILE_PRIORITY_networking-layer_forcevariable = "12"
+BBFILE_PRIORITY_multimedia-layer_forcevariable = "11"
+BBFILE_PRIORITY_openembedded-layer_forcevariable = "10"
+BBFILE_PRIORITY_core_forcevariable = "5"
