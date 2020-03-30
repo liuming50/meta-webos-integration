@@ -18,7 +18,7 @@ fi
 TOP_DIR=$(realpath $THIS_SCRIPT_DIR)
 TEMPLATECONF=$TOP_DIR/sources/meta-webos-integration/conf
 
-. $TOP_DIR/sources/poky/oe-init-build-env
+. $TOP_DIR/sources/poky/oe-init-build-env $TOP_DIR/build
 . $TOP_DIR/sources/bitbake-bash-completion/bitbake
 
 export WEBOS_INTEGRATION_PREBUILT_DIR="$1"
