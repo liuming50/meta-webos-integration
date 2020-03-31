@@ -62,7 +62,7 @@ Create an empty directory that will hold the meta-webos-integration and Yocto so
 ```
 $ mkdir ~/webos-workspace
 $ cd ~/webos-workspace
-$ repo init -u https://github.com/liuming50/webos-manifests.git -b master
+$ repo init -u https://github.com/liuming50/webos-manifest.git -b master
 ```
 
 Enter the following command to pull down the source tree to your working directory. The repo sync operation might take time depending on your Internet download speed.
@@ -78,6 +78,7 @@ Set up the environment:
 
 ```
 $ cd ~/webos-workspace
+$ sudo ./prerequisites.sh
 $ . poky-init-build-env /path/to/pre-built-folder 
 $ bitbake webos-image
 ```
