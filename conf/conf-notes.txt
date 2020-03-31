@@ -9,7 +9,7 @@ __   __         _         __        __   _      ___  ____
 ----------------------------------------------------------                                                           
 
 Supported machines:
-    qemux86
+    raspberrypi3
 
 Common targets are:
     webos-image
