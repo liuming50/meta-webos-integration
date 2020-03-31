@@ -48,6 +48,8 @@ META_SECURITY_LAYER ?= "##OEROOT##/../meta-security"
 META_WEBOS_SMACK_LAYER ?= "##OEROOT##/../meta-webosose/meta-webos-smack"
 META_WEBOS_VIRTUALIZATION_LAYER ?= "##OEROOT##/../meta-webosose/meta-webos-virtualization"
 META_WEBOS_UPDATER_LAYER ?= "##OEROOT##/../meta-webosose/meta-webos-updater"
+META_WEBOS_RASPBERRYPI_LAYER ?= "##OEROOT##/meta-webosose/meta-webos-raspberrypi"
+META_RASPBERRYPI_LAYER ?= "##OEROOT##/meta-raspberrypi"
 META_WEBOS_LAYER ?= "##OEROOT##/../meta-webosose/meta-webos"
 META_WEBOS_BACKPORTS_3.1_LAYER ?= "##OEROOT##/../meta-webosose/meta-webos-backports/meta-webos-backports-3.1"
 META_WEBOS_BACKPORTS_3.0_LAYER ?= "##OEROOT##/../meta-webosose/meta-webos-backports/meta-webos-backports-3.0"
@@ -68,6 +70,8 @@ BBLAYERS ?= " \
     ${META_WEBOS_SMACK_LAYER} \
     ${META_WEBOS_VIRTUALIZATION_LAYER} \
     ${META_WEBOS_UPDATER_LAYER} \
+    ${META_WEBOS_RASPBERRYPI_LAYER} \
+    ${META_RASPBERRYPI_LAYER} \
     ${META_WEBOS_LAYER} \
     ${META_WEBOS_BACKPORTS_3.1_LAYER} \
     ${META_WEBOS_BACKPORTS_3.0_LAYER} \
@@ -86,6 +90,8 @@ BBFILE_PRIORITY_security_forcevariable = "77"
 BBFILE_PRIORITY_meta-webos-smack_forcevariable = "75"
 BBFILE_PRIORITY_meta-webos-virtualization_forcevariable = "53"
 BBFILE_PRIORITY_meta-webos-updater_forcevariable = "52"
+BBFILE_PRIORITY_meta-webos-raspberrypi_forcevariable = "51"
+BBFILE_PRIORITY_raspberrypi_forcevariable = "50"
 BBFILE_PRIORITY_meta-webos_forcevariable = "40"
 BBFILE_PRIORITY_meta-webos-backports-3.1_forcevariable = "32"
 BBFILE_PRIORITY_meta-webos-backports-3.0_forcevariable = "31"
